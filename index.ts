@@ -27,14 +27,18 @@ switch (Randomizer.getRandomInt(1, 4)) {
     case 3:
         sorter = new QuickSorter();
         break;
-    default:
+    case 4:
         sorter = new ShakerSorter();
         break;
+    default:
+        throw new Error("Unexpected sorter");
 }
+
+console.log("Unsorted:", array.join(" "));
 
 array = sorter.sort(array, direction);
 
-console.log(array.toString());
+console.log("Sorted:", array.join(" "));
 console.log(sorter.type, "sort,", "direction:", direction.toString());
 
 HttpClient.post(config.address, array);
