@@ -5,6 +5,7 @@ import { MergeSorter } from './sorters/mergeSorter';
 import { QuickSorter } from './sorters/quickSorter';
 import { ShakerSorter } from './sorters/shakerSorter';
 import config from './config.json';
+import { HttpClient } from './httpClient';
 
 var array: number[] = [];
 var sorter: ISorter;
@@ -35,3 +36,5 @@ array = sorter.sort(array, direction);
 
 console.log(array.toString());
 console.log(sorter.type, "sort,", "direction:", direction.toString());
+
+HttpClient.post(config.address, array);
