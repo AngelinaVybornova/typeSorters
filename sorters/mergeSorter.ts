@@ -8,16 +8,16 @@ export class MergeSorter implements ISorter {
 
         if (array.length > 0) {
             const buffer = new Array(array.length);
-            this.mergeSortImpl(array, buffer, 0, array.length - 1, comparator);
+            this.mergeSort(array, buffer, 0, array.length - 1, comparator);
         }
         return array;
     }
 
-    private mergeSortImpl(array: number[], buffer: number[], l: number, r: number, compare: (a: number, b: number) => boolean): void {
+    private mergeSort(array: number[], buffer: number[], l: number, r: number, compare: (a: number, b: number) => boolean): void {
         if (l < r) {
             const m = Math.floor((l + r) / 2);
-            this.mergeSortImpl(array, buffer, l, m, compare);
-            this.mergeSortImpl(array, buffer, m + 1, r, compare);
+            this.mergeSort(array, buffer, l, m, compare);
+            this.mergeSort(array, buffer, m + 1, r, compare);
 
             let k = l;
             let i = l;
